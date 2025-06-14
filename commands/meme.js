@@ -17,7 +17,7 @@ async function fetchMeme() {
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("meme")
+    .setName("memes")
     .setDescription("Fetches a random meme from Reddit"),
   async execute(interaction) {
     const meme = await fetchMeme();

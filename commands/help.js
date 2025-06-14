@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require("discord.js");
-const projects = require("../data/projects");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -7,29 +6,36 @@ module.exports = {
     .setDescription("Get help on how to use the bot commands"),
 
   async execute(interaction) {
-    const projectList = projects.map((p) => `• \`${p.name}\``).join("\n");
-
     const helpText = `
 **🤖 Bot Command Help**
 
-📌 **/project** — Shows List of the projects.
-➡️ Example: \`/project \`
+🎉 **/meme** — Sends a random meme from Reddit.
 
-📌 **/desc** — Get a detailed description of a specific project.
-➡️ Example: \`/desc name:ChatApp\`
+📏 **/ai-prompt** — Generates an AI-based creative writing or idea prompt.
 
-📌 **/live** — Get the live demo link for a project.
-➡️ Example: \`/live name:ChatApp\`
+📚 **/trivia** — Start a trivia quiz and test your knowledge.
 
-🗂 **Available Projects:**
-${projectList}
+⏰ **/remindme** — Set a personal reminder.
+➡️ Example: \`/remindme time:5m message:Drink Water\`
 
-✨ You can use auto-complete to pick project names easily.
+💬 **/fakequote** — Get a fake inspirational quote.
+
+🤔 **/facts** — Get real facts .
+
+🔥 **/roastme** — Get a savage roast (for fun only!).
+
+😂 **/dadjoke** — Get a random dad joke.
+
+🎞 **/gif** — Search and send a GIF using a keyword.
+➡️ Example: \`/gif query:"dancing cat"\`
+
+
+📜 Use \`/\` to start typing any command and see available options with autocomplete.
     `;
 
     await interaction.reply({
       content: helpText,
-      ephemeral: true, // Only visible to the user who used the command
+      ephemeral: true,
     });
   },
 };
