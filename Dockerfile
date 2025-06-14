@@ -1,20 +1,15 @@
-# 1. Base image with Node.js
-FROM node:20
+# Use official Node.js image
+FROM node:20-alpine
 
-# 2. Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# 3. Copy dependency files first
+# Copy package files and install dependencies
 COPY package*.json ./
-
-# 4. Install dependencies
 RUN npm install
 
-# 5. Copy rest of the project
+# Copy bot source code
 COPY . .
 
-# 6. Use env vars from host (e.g., PORT or DISCORD_TOKEN)
-ENV NODE_ENV=production
-
-# 7. Run your bot
+# Start the bot
 CMD ["node", "index.js"]
