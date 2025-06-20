@@ -12,7 +12,7 @@ module.exports = {
       const response = await fetch(url, {
         method: "GET",
         headers: {
-          "X-Api-Key": "MbsrM7K1uI12XjRWv+mCLA==95XKkxZOfQftJnmS",
+          "X-Api-Key": process.env.FACTS_API_KEY,
         },
       });
 
